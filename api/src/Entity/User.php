@@ -72,7 +72,7 @@ class User implements UserInterface
         $this->password = $password;
     }
 
-    public function getAvatar(): string
+    public function getAvatar(): ?string
     {
         return $this->avatar;
     }
