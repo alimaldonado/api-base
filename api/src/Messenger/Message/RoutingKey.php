@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository\Message;
+namespace App\Messenger\Message;
 
 class RoutingKey
 {
