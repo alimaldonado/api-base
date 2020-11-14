@@ -11,4 +11,5 @@
 
 ###> other files ###
 docker-compose.yml
+/templates/template.html
 ###< other files ###
