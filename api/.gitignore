@@ -21,4 +21,5 @@
 
 ###> other files ###
 docker-compose.yml
+.php_cs.cache
 ###< other files ###
