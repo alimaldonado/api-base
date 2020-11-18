@@ -11,6 +11,31 @@ App\Entity\User:
                 groups: [user_post]
             openapi_context:
                 summary: Register a new user
+        login:
+            method: POST
+            route_name: api_login_check
+            openapi_context:
+                summary: Logs in a user in the API. Username must be user's email
+                requestBody:
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    username:
+                                        type: string
+                                    password:
+                                        type: string
+                responses:
+                    200:
+                        description: OK
+                        content:
+                            application/json:
+                                schema:
+                                    type: object
+                                    properties:
+                                        token:
+                                            type: string
         resend_activation_email:
             method: POST
             path: /users/resend_activation_email
