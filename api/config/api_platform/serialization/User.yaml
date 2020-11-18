@@ -10,6 +10,8 @@ App\Entity\User:
             groups: [user_post]
         avatar:
             groups: [user_read]
+        token:
+            groups: [user_activate]
         active:
             groups: [user_read]
         created_at:

@@ -82,7 +82,7 @@ class User implements UserInterface
         $this->avatar = $avatar;
     }
 
-    public function getToken(): string
+    public function getToken(): ?string
     {
         return $this->token;
     }
@@ -92,7 +92,7 @@ class User implements UserInterface
         $this->token = $token;
     }
 
-    public function getResetPasswordToken(): string
+    public function getResetPasswordToken(): ?string
     {
         return $this->resetPasswordToken;
     }
