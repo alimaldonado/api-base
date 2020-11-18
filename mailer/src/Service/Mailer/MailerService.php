@@ -14,6 +14,7 @@ class MailerService
     private const TEMPLATE_SUBJECT_MAP = [
         // modify mail subject to your needs
         TwigTemplate::USER_REGISTER => 'Bienvenido(a)',
+        TwigTemplate::REQUEST_RESET_PASSWORD => 'Restablecer contraseña'
     ];
     
     private MailerInterface $mailer;
