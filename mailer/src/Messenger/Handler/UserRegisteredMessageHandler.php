@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Mailer\Messenger\Handler;
 
 use Mailer\Messenger\Message\UserRegisteredMessage;
@@ -10,13 +12,11 @@ use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 class UserRegisteredMessageHandler implements MessageHandlerInterface
 {
-    protected MailerService $mailerService;
-
-    protected string $host;
+    private MailerService $mailerService;
+    private string $host;
 
     public function __construct(MailerService $mailerService, string $host)
     {
-        # code...
         $this->mailerService = $mailerService;
         $this->host = $host;
     }
@@ -36,9 +36,7 @@ class UserRegisteredMessageHandler implements MessageHandlerInterface
                 $message->getId()
             ),
         ];
-        
-        $this->mailerService->send($message->getEmail(), TwigTemplate::USER_REGISTER, $payload);
 
-        
+        $this->mailerService->send($message->getEmail(), TwigTemplate::USER_REGISTER, $payload);
     }
 }

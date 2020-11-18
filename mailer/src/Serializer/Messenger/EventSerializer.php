@@ -21,6 +21,9 @@ class EventSerializer extends Serializer
 
     private function translateType(string $type): string
     {
+        /**
+         * converts message type sent from app to the type on mailer
+         */
         $map = ['App\Messenger\Message\UserRegisteredMessage' => UserRegisteredMessage::class];
 
         if (\array_key_exists($type, $map)) {

@@ -43,6 +43,9 @@ class UserRegisterService
             throw UserAlreadyExistsException::fromEmail($email);            
         }
 
+        /**
+         * send acount  activation mail
+         */
         $this->messageBus->dispatch(
             new UserRegisteredMessage($user->getId(), $user->getName(), $user->getEmail(), $user->getToken()),
             [new AmqpStamp(RoutingKey::USER_QUEUE)]

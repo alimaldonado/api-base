@@ -12,22 +12,23 @@ use Twig\Environment;
 class MailerService
 {
     private const TEMPLATE_SUBJECT_MAP = [
+        // modify mail subject to your needs
         TwigTemplate::USER_REGISTER => 'Bienvenido(a)',
     ];
     
-    protected MailerInterface $mailer;
+    private MailerInterface $mailer;
 
-    protected Environment $engine;
+    private Environment $engine;
 
-    protected LoggerInterface $logger;
+    private LoggerInterface $logger;
 
-    protected string $mailerDefaultSender;
+    private string $mailerDefaultSender;
 
     public function __construct(MailerInterface $mailer, Environment $engine, LoggerInterface $logger, string $mailerDefaultSender)
     {
 
         $this->mailer = $mailer;
-        $this->environment = $engine;
+        $this->engine = $engine;
         $this->logger = $logger;
         $this->mailerDefaultSender = $mailerDefaultSender;
     }

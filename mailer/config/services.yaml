@@ -3,7 +3,7 @@ parameters:
 services:
     _defaults:
         autowire: true
-        autoconfigure: 
+        autoconfigure: true
         bind:
             $mailerDefaultSender: '%env(string:MAILER_DEFAULT_SENDER)%'
             $host: '%env(string:HOST)%'
