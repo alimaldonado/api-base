@@ -102,7 +102,7 @@ class User implements UserInterface
         $this->resetPasswordToken = $resetPasswordToken;
     }
 
-    public function getActive(): bool
+    public function isActive(): bool
     {
         return $this->active;
     }
