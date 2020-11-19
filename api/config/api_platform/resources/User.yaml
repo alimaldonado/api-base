@@ -88,35 +88,6 @@ App\Entity\User:
                                     properties:
                                         message:
                                             type: string
-        change_password:
-            method: POST
-            path: /users/change_password
-            controller: App\Api\Action\User\ChangePassword
-            deserialize: false
-            openapi_context:
-                summary: Modifies authenticated user's password
-                requestBody:
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                properties:
-                                    oldPassword:
-                                        type: string
-                                        required: true
-                                    newPassword:
-                                        type: string
-                                        required: true
-                responses:
-                    200:
-                        description: OK
-                        content: 
-                            application/json:
-                                schema:
-                                    type: object
-                                    properties:
-                                        User:
-                                            type: object
     itemOperations:
         get:
             method: GET
@@ -155,3 +126,22 @@ App\Entity\User:
                             application/ld+json:
                                 schema:
                                     $ref: "#/components/schemas/User:jsonld-user_read"
+        change_password:
+            method: PUT
+            path: /users/{id}/change_password
+            controller: App\Api\Action\User\ChangePassword
+            deserialize: false
+            openapi_context:
+                summary: Modifies authenticated user's password
+                requestBody:
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    oldPassword:
+                                        type: string
+                                        required: true
+                                    newPassword:
+                                        type: string
+                                        required: true
