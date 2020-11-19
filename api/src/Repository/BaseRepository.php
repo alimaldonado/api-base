@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
-use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DBALException;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Persistence\Mapping\MappingException;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Persistence\ObjectRepository;

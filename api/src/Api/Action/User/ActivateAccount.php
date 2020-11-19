@@ -3,6 +3,7 @@
 namespace App\Api\Action\User;
 
 use App\Entity\User;
+use App\Service\Request\RequestService;
 use App\Service\User\ActivateAccountService;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -15,8 +16,11 @@ class ActivateAccount
         $this->activateAccountService = $activateAccountService;
     }
 
-    public function __invoke(Request $request, string $id) : User
+    public function __invoke(Request $request, string $id): User
     {
-        return $this->activateAccountService->activate($request, $id);
+        return $this->activateAccountService->activate(
+            RequestService::getField($request, 'token'),
+            $id
+        );
     }
 }

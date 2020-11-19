@@ -10,6 +10,6 @@ class UserIsActiveException extends ConflictHttpException
 
     public static function fromEmail(string $email): self
     {
-        throw new self(\sprintf(self::MESSAGE,$email));
+        throw new self(\sprintf(self::MESSAGE, $email));
     }
 }

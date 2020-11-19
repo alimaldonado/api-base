@@ -17,8 +17,8 @@ class User implements UserInterface
     private ?string $token;
     private ?string $resetPasswordToken;
     private bool $active;
-    private \DateTime $createdAt; 
-    private \DateTime $updatedAt; 
+    private \DateTime $createdAt;
+    private \DateTime $updatedAt;
 
     public function __construct(string $name, string $email)
     {
@@ -126,7 +126,7 @@ class User implements UserInterface
     {
         $this->updatedAt = new \DateTime();
     }
-    
+
     public function getRoles(): array
     {
         return [];
@@ -134,7 +134,6 @@ class User implements UserInterface
 
     public function getSalt(): void
     {
-        
     }
 
     public function getUsername()
@@ -142,8 +141,7 @@ class User implements UserInterface
         return $this->email;
     }
 
-    public function eraseCredentials() : void
+    public function eraseCredentials(): void
     {
-        
     }
 }

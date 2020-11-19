@@ -1,12 +1,13 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Service\Password;
 
+use App\Entity\User;
 use App\Exception\Password\PasswordException;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use App\Entity\User;
 
 class EncoderService
 {
@@ -15,7 +16,7 @@ class EncoderService
     private UserPasswordEncoderInterface $userPasswordEncoderInterface;
 
     public function __construct(UserPasswordEncoderInterface $userPasswordEncoderInterface)
-    {   
+    {
         $this->userPasswordEncoderInterface = $userPasswordEncoderInterface;
     }
 
@@ -24,6 +25,7 @@ class EncoderService
         if (self::MINIMUM_LENGHT > \strlen($password)) {
             throw PasswordException::invalidLenght();
         }
+
         return $this->userPasswordEncoderInterface->encodePassword($user, $password);
     }
 
