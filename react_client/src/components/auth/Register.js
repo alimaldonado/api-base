@@ -1,7 +1,12 @@
-import React, {useState} from 'react';
-import { Link } from 'react-router-dom'
+import React, {useState, useContext} from 'react';
+import { Link } from 'react-router-dom';
+import AlertContext from '../../context/alert/altertContext';
 
 const Register = () => {
+
+    const alertContext = useContext(AlertContext);
+    const{alert, showAlert} = alertContext;
+
     //register state
     const [user, saveUser] = useState({
         name: '',
@@ -23,10 +28,16 @@ const Register = () => {
     //to register 
     const onSubmit = e => {
         e.preventDefault();
-        
+        if(name.trim === '' 
+            || email.trim === '' 
+            || password.trim === '' 
+            || confirmPassword.trim === ''){
+                showAlert('All fields are required', 'alerta-error');
+            }
     }
     return ( 
         <div className="form-usuario">
+            {alert ? (<div className={`alert ${alert.categoria}`}>{alert.msg}</div>) : null}
             <div className="contenedor-form sombra-dark">
                 <h1>Create a new account</h1>
                 <form onSubmit={onSubmit}>
